@@ -8,8 +8,8 @@ vim: syntax=groovy
 if (params.help ) {
     return help()
 }
-if( params.input_dir ) {
-    input_dir = params.input_dir
+if( params.input_fasta ) {
+    input_fasta = params.input_fasta
     //if( host_index.isEmpty() ) return index_error(host_index)
 }
 if( params.reference_genome ) {
@@ -49,21 +49,16 @@ slidingwindow = params.slidingwindow
 minlen = params.minlen
 
 
-process RunLYVESET {
+process RunCATCH {
     tag { sample_id }
 
     publishDir "${params.output}", mode: "copy"
 
     output:
-      file "Lyveset_results/*" into (lyveset_results)
+      file "CATCH_results/*" into (catch_results)
 
     """
-    set_manage.pl --create Lyveset_results
-    shuffleSplitReads.pl --numcpus 8 -o interleaved_reads/ ${input_dir}/*/*_{1,2}.fastq
-    cp interleaved_reads/*.fastq.gz Lyveset_results/reads/
-    cp ${reference_genome} Lyveset_results/reference/ref_genome.fasta
-    launch_set.pl --numcpus ${threads} -ref Lyveset_results/reference/ref_genome.fasta Lyveset_results --noqsub
-    kSNP3 -in ksnp_sample_list_15genomes -CPU ${threads} -NJ -ML -k 13 -outdir kSNP3_results -annotate annotated_genomes | tee kSNP3RunLogfile
+    design.py ${input_fasta} -pl 120 -ps 120 -o ${input_fasta}.probes.fasta --max-num-processes ${threads} --verbose --cluster-and-design-separately 0.1
 
     """
 }
