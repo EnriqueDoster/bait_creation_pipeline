@@ -26,7 +26,7 @@ nextflow run main_bait_design.nf --reference_genome /home/enriquedoster/Document
 # Documents
 ------------
 
-## Genome data
+### Genome data
 - [M. Clawson genomes](https://github.com/EnriqueDoster/bait_creation_pipeline/tree/master/docs/M_haemolytica_literature/Clawson_genome_data)
   * Figure 1 shows a tree of M. haemolytica isolates made in EDGAR.  There are two major genotypes and one deep branch of an outlier.
   * Figure 2 shows a tree of genotype 1 M. haemolytica isolates made in EDGAR with five subtypes previously described in the attached paper.
@@ -35,6 +35,6 @@ nextflow run main_bait_design.nf --reference_genome /home/enriquedoster/Document
   * Figure 5 shows a tree of genotype 2 M. haemolytica made in Parsnp/Gingr with the ICE region removed.
 
  
-## Antimicrobial resistance baits
+### Antimicrobial resistance baits
 - [MEGARich](https://github.com/EnriqueDoster/bait_creation_pipeline/blob/master/docs/M_haemolytica_literature/2017.Noyes%20MEGaRICH%20-Microbiome.pdf)
 
