@@ -18,7 +18,8 @@ Tasks:
 
 ### Example command
 ```bash
-nextflow run main_bait_design.nf --reference_genome /home/enriquedoster/Documents/Projects/Mann_heim_69_genomes/genome_assemblies/ncbi-genomes-2019-08-28/GCF_007963885.1_ASM796388v1_genomic.fna --input_dir /home/enriquedoster/Documents/Projects/63_genomes/test_dir -profile singularity --output test_WGS
+nextflow run main_bait_design.nf --threads 5 --reads "/media/AngusWorkspace/M_heim_genomes/genomes/*.fna" -profile local --output M_haem_baits --singleEnd
+
 ```
 
 
